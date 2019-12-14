@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Pixabay</string>
+    <string name="retry">ERROR !! Tap to retry.</string>
+</resources>
