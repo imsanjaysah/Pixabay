@@ -15,7 +15,7 @@ import javax.inject.Inject
  * @author Sanjay Sah
  */
 class PixabayLocalDataSource @Inject constructor() : PixabayDataSource {
-    override fun searchImages(apiKey: String, query: String): Flowable<List<PixabayImage>> {
+    override fun searchImages(apiKey: String, query: String, page: Int, limit: Int): Flowable<List<PixabayImage>> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

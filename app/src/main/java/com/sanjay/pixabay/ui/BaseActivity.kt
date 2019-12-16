@@ -73,7 +73,7 @@ abstract class BaseActivity : AppCompatActivity() {
     private fun customizeSnackbar(context: Context, snackbar: Snackbar) {
         snackbar.setActionTextColor(Color.WHITE)
         val sbView = snackbar.view
-        sbView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary))
+        sbView.setBackgroundColor(ContextCompat.getColor(this, R.color.pixabay_green_500))
 
     }
 }

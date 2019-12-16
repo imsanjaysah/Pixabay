@@ -16,6 +16,12 @@ data class PixabayImage(
     val likes: Int,
     val comments: Int,
     val favorites: Int,
-    val tags: String
+    val tags: String,
+    @SerializedName("previewURL") val thumbnailUrl: String,
+    @SerializedName("webformatURL") val imageUrl: String
 
-) : Parcelable
+) : Parcelable {
+    fun getTags(): List<String> {
+        return tags.split(",")
+    }
+}

@@ -7,6 +7,7 @@ import androidx.paging.PagedList
 import com.sanjay.pixabay.data.repository.remote.model.PixabayImage
 import com.sanjay.pixabay.paging.factory.PixabaySearchPagingDataSourceFactory
 import com.sanjay.pixabay.ui.BaseViewModel
+import com.sanjay.pixabay.ui.search.PixabayImagesFragment.Companion.DEFAULT_SEARCH
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
@@ -30,6 +31,7 @@ class PixabaySearchViewModel @Inject constructor(private val pagingDataSourceFac
                 pagingDataSourceFactory, config
             ).build()
         }
+
     }
 
     fun listIsEmpty(): Boolean {

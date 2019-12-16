@@ -20,5 +20,7 @@ interface AppComponent {
 
     fun activityModule(activityModule: ActivityModule): ActivityComponent
 
+    fun fragmentModule(fragmentModule: FragmentModule): FragmentComponent
+
 
 }

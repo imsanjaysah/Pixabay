@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_pixabay"
+    app:startDestination="@id/pixabayImagesFragment">
+
+    <fragment
+        android:id="@+id/pixabayImagesFragment"
+        android:name="com.sanjay.pixabay.ui.search.PixabayImagesFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_pixabay_images">
+        <action
+            android:id="@+id/action_image_detail"
+            app:destination="@id/pixabayDetailImageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/pixabayDetailImageFragment"
+        android:name="com.sanjay.pixabay.ui.detail.PixabayDetailImageFragment"
+        tools:layout="@layout/fragment_image_detail">
+        <argument
+            android:name="image"
+            app:argType="com.sanjay.pixabay.data.repository.remote.model.PixabayImage" />
+    </fragment>
+</navigation>

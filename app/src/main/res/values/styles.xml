@@ -1,20 +1,25 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="Base.Theme.Pixabay" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/pixabay_green_900</item>
+        <item name="colorOnPrimary">@color/pixabay_yellow_300</item>
+        <item name="colorPrimaryDark">@color/pixabay_black</item>
+        <item name="colorOnSurface">@color/pixabay_white</item>
+        <item name="colorAccent">@color/pixabay_green_300</item>
+        <item name="colorSurface">@color/pixabay_green_900</item>
+        <item name="colorSecondary">@color/pixabay_yellow_300</item>
+        <item name="android:colorBackground">@color/pixabay_green_900</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="Theme.Pixabay" parent="Base.Theme.Pixabay"/>
+
+    <style name="Theme.Pixabay.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowContentTransitions">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Pixabay.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 

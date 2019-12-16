@@ -17,7 +17,7 @@ import javax.inject.Inject
  */
 class PixabayRepository @Inject constructor(@Local private val localDataSource: PixabayDataSource, @Remote private val remoteDataSource: PixabayDataSource) :
     PixabayDataSource {
-    override fun searchImages(apiKey: String, query: String): Flowable<List<PixabayImage>> =
-        remoteDataSource.searchImages(apiKey, query)
+    override fun searchImages(apiKey: String, query: String, page: Int, limit: Int): Flowable<List<PixabayImage>> =
+        remoteDataSource.searchImages(apiKey, query, page, limit)
 
 }

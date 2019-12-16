@@ -8,6 +8,7 @@ package com.sanjay.pixabay.injection.module
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sanjay.pixabay.injection.ViewModelFactory
+import com.sanjay.pixabay.ui.detail.PixabayImageDetailViewModel
 import com.sanjay.pixabay.ui.search.PixabaySearchViewModel
 import dagger.Module
 import dagger.Provides
@@ -23,5 +24,10 @@ open class ViewModelModule {
     @IntoMap
     @ViewModelFactory.ViewModelKey(PixabaySearchViewModel::class)
     fun providesPixabaySeacrhViewModel(viewModel: PixabaySearchViewModel): ViewModel = viewModel
+
+    @Provides
+    @IntoMap
+    @ViewModelFactory.ViewModelKey(PixabayImageDetailViewModel::class)
+    fun providesImageDetailViewModel(viewModel: PixabayImageDetailViewModel): ViewModel = viewModel
 
 }

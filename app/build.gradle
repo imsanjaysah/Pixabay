@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-
+apply plugin: 'androidx.navigation.safeargs.kotlin'
 //Version information
 def versionMajor = 1
 def versionMinor = 0
@@ -95,7 +95,7 @@ android {
             applicationIdSuffix ".development"
             versionNameSuffix "-development"
             buildConfigField BOOLEAN, LEAKCANARY, 'true'
-            buildConfigField STRING, API_URL, '"https://pixabay.com/api/"'
+            buildConfigField STRING, API_URL, '"https://pixabay.com/"'
             buildConfigField STRING, API_KEY, '"14621323-f5bc49758eb48839d6b8a962e"'
 
         }
@@ -103,7 +103,7 @@ android {
         production {
             dimension "environment"
             buildConfigField BOOLEAN, LEAKCANARY, 'false'
-            buildConfigField STRING, API_URL, '"https://pixabay.com/api/"'
+            buildConfigField STRING, API_URL, '"https://pixabay.com/"'
             buildConfigField STRING, API_KEY, '"14621323-f5bc49758eb48839d6b8a962e"'
 
         }
@@ -126,6 +126,19 @@ android {
         quiet true
         abortOnError false
         ignoreWarnings true
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // work-runtime-ktx 2.1.0 and above now requires Java 8
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
@@ -153,6 +166,12 @@ dependencies {
     implementation "com.google.android.material:material:$materialVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
 
+    implementation 'me.gujun.android.taggroup:library:1.4@aar'
+
+    //Navigation Component
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
     //Crashlytics
     implementation("com.crashlytics.sdk.android:crashlytics:$crashLyticsVersion") {
         transitive = true
@@ -173,6 +192,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     implementation 'com.jakewharton.rxbinding3:rxbinding:3.1.0'
+    implementation 'com.jakewharton.rxbinding3:rxbinding-appcompat:3.1.0'
 
     //Logging
     implementation "com.jakewharton.timber:timber:$timberVersion"

@@ -12,6 +12,6 @@ import io.reactivex.Flowable
  */
 interface PixabayDataSource {
 
-    fun searchImages(apiKey: String, query: String): Flowable<List<PixabayImage>>
+    fun searchImages(apiKey: String, query: String, page: Int, limit: Int): Flowable<List<PixabayImage>>
 
 }

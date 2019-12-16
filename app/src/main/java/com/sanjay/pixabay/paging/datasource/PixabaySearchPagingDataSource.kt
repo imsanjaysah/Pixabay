@@ -52,7 +52,7 @@ class PixabaySearchPagingDataSource @Inject constructor(private val repository: 
         val currentPage = 1
         val nextPage = currentPage + 1
         //Call api
-        repository.searchImages(BuildConfig.API_KEY, searchQuery.value!!)
+        repository.searchImages(BuildConfig.API_KEY, searchQuery.value!!, currentPage, params.requestedLoadSize)
             .subscribe(
                 { images ->
                     updateState(State.DONE)
@@ -67,8 +67,22 @@ class PixabaySearchPagingDataSource @Inject constructor(private val repository: 
     }
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, PixabayImage>) {
-        updateState(State.DONE)
-        callback.onResult(emptyList(), null)
+        updateState(State.LOADING)
+        val currentPage = params.key
+        val nextPage = currentPage + 1
+        //Call api
+        repository.searchImages(BuildConfig.API_KEY, searchQuery.value!!, currentPage, params.requestedLoadSize)
+            .subscribe(
+                { images ->
+                    updateState(State.DONE)
+                    callback.onResult(images, nextPage)
+
+                },
+                {
+                    updateState(State.ERROR)
+                    setRetry(Action { loadAfter(params, callback) })
+                }
+            ).addToCompositeDisposable(disposable)
     }
 
     override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, PixabayImage>) {

@@ -18,7 +18,11 @@ interface PixabayService {
     /**
      * Api for fetching Images list
      */
-    @GET()
-    fun searchImages(@Query("key") key: String, @Query("q") query: String): Single<PixabaySearchResponse>
+    @GET("api/")
+    fun searchImages(
+        @Query("key") key: String, @Query("q") query: String, @Query("page") page: Int, @Query(
+            "per_page"
+        ) limit: Int
+    ): Single<PixabaySearchResponse>
 
 }
