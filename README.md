@@ -1,5 +1,4 @@
 # Pixabay
-# QuickMeal
  <img src="screens/screen1.png" style="float: left; margin-left: 10px;" width="200"/> <img src="screens/screen2.png" style="float: left; margin-left: 10px;" width="200"/> <img src="screens/screen3.png" style="float: left; margin-left: 10px;" width="200"/></br>Pixabay search image application.
 ## Features
   + Search Images
