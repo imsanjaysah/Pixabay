@@ -8,5 +8,5 @@ import javax.inject.Inject
 
 class PixabayImageDetailViewModel @Inject constructor(repository: PixabayRepository) : ViewModel() {
 
-    var image = PixabayImage("","",0,0,0,"","","")
+    var image: PixabayImage? = null
 }
